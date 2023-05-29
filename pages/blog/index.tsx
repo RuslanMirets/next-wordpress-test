@@ -10,7 +10,7 @@ interface IHomeProps {
 
 const BlogPage: NextPage<IHomeProps> = ({ posts }) => {
 	return (
-		<div>
+		<div className="container">
 			{posts.map((post) => (
 				<div key={post.slug}>
 					<Link

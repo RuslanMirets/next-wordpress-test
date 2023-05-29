@@ -8,14 +8,14 @@ interface IPostProps {
 
 const PostPage: NextPage<IPostProps> = ({ post }) => {
 	return (
-		<>
+		<div className="container">
 			{post && (
 				<article>
 					<h1>{post.title}</h1>
 					<div dangerouslySetInnerHTML={{ __html: post.content }} />
 				</article>
 			)}
-		</>
+		</div>
 	);
 };
 
