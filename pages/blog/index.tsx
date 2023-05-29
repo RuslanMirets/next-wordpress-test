@@ -13,7 +13,12 @@ const BlogPage: NextPage<IHomeProps> = ({ posts }) => {
 		<div>
 			{posts.map((post) => (
 				<div key={post.slug}>
-					<Link href={`blog/${post.slug}`}>{post.title}</Link>
+					<Link
+						className="underline hover:no-underline"
+						href={`blog/${post.slug}`}
+					>
+						{post.title}
+					</Link>
 				</div>
 			))}
 			<div>
