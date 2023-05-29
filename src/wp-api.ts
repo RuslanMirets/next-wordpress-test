@@ -17,7 +17,7 @@ async function fetchData(query: string) {
 export async function getPosts() {
 	const data = await fetchData(`
     query getPosts{
-      posts {
+      posts(where: {categoryNotIn: "366"}) {
         nodes {
           slug
           title
