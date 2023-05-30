@@ -1,4 +1,4 @@
-import { IPost, IPostPreview } from "./types";
+import { IPage, IPages, IPost, IPostPreview } from "./types";
 
 async function fetchData(query: string) {
 	const headers = { "Content-Type": "application/json" };
@@ -14,6 +14,7 @@ async function fetchData(query: string) {
 
 	return json.data;
 }
+
 export async function getPosts() {
 	const data = await fetchData(`
     query getPosts{
@@ -45,4 +46,38 @@ export async function getPostBySlug(slug: string) {
     } 	
   `);
 	return data.post as IPost;
+}
+
+export async function getPages() {
+	const data = await fetchData(`
+    query getPosts{
+      pages {
+        nodes {
+          slug
+        }
+      }
+    } 	
+  `);
+	return data.pages.nodes as IPages[];
+}
+
+export async function getPageBySlug() {
+	const data = await fetchData(`
+    query getPageBySlug {
+			page(id: "cgb", idType: URI) {
+        title
+        rm {
+          introTitle
+          introDesc
+          workList {
+            workListName
+            workListImg {
+              sourceUrl
+            }
+          }
+        }
+      }
+    } 	
+  `);
+	return data.page as IPage;
 }

@@ -13,3 +13,14 @@ h1 {
 	margin: 0 auto;
 	padding: 0 16px;
 }
+
+.h2 {
+	font-size: 24px;
+	line-height: 32px;
+	color: #efca48;
+}
+.h2 span {
+	color: #000;
+	border-bottom: 3px solid #7f26c5;
+	border-left: 3px solid #7f26c5;
+}
