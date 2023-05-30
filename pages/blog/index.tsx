@@ -1,3 +1,4 @@
+import Layout from "@/src/components/Layout";
 import { IPostPreview } from "@/src/types";
 import { getPosts } from "@/src/wp-api";
 import { GetServerSideProps, NextPage } from "next";
@@ -10,7 +11,7 @@ interface IHomeProps {
 
 const BlogPage: NextPage<IHomeProps> = ({ posts }) => {
 	return (
-		<div className="container">
+		<Layout>
 			{posts.map((post) => (
 				<div key={post.slug}>
 					<Link
@@ -29,14 +30,11 @@ const BlogPage: NextPage<IHomeProps> = ({ posts }) => {
 					alt="Image"
 				/>
 			</div>
-		</div>
+		</Layout>
 	);
 };
 
-// тип GetServerSideProps экспортируем из 'next'
 export const getServerSideProps: GetServerSideProps = async () => {
-	// тип IPostPreview[] переменной posts можно не указывать,
-	// т.к. мы явно указали в getPost какого типа данные мы возвращаем
 	const posts: IPostPreview[] = await getPosts();
 
 	return {

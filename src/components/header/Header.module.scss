@@ -1,0 +1,21 @@
+.root {
+	background-color: #000;
+	color: #fff;
+	margin-bottom: 40px;
+
+	.container {
+		display: flex;
+		align-items: center;
+		min-height: 80px;
+	}
+
+	.list {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+
+		a.active {
+			text-decoration: underline;
+		}
+	}
+}

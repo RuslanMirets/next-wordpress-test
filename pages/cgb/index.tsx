@@ -1,8 +1,8 @@
+import Layout from "@/src/components/Layout";
 import { IPage } from "@/src/types";
 import { getPageBySlug } from "@/src/wp-api";
 import { GetServerSideProps, NextPage } from "next";
 import Image from "next/image";
-import { useRouter } from "next/router";
 
 interface IPageProps {
 	page: IPage;
@@ -10,7 +10,7 @@ interface IPageProps {
 
 const CGB: NextPage<IPageProps> = ({ page }) => {
 	return (
-		<div className="container">
+		<Layout>
 			<h1>{page.title}</h1>
 			<div>
 				<h2
@@ -36,7 +36,7 @@ const CGB: NextPage<IPageProps> = ({ page }) => {
 					))}
 				</div>
 			</div>
-		</div>
+		</Layout>
 	);
 };
 

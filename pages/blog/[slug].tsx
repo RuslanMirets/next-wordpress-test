@@ -1,3 +1,4 @@
+import Layout from "@/src/components/Layout";
 import { IPost } from "@/src/types";
 import { getPostBySlug, getPosts } from "@/src/wp-api";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
@@ -8,14 +9,14 @@ interface IPostProps {
 
 const PostPage: NextPage<IPostProps> = ({ post }) => {
 	return (
-		<div className="container">
+		<Layout>
 			{post && (
 				<article>
 					<h1>{post.title}</h1>
 					<div dangerouslySetInnerHTML={{ __html: post.content }} />
 				</article>
 			)}
-		</div>
+		</Layout>
 	);
 };
 
